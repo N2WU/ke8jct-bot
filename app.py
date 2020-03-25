@@ -20,7 +20,7 @@ def webhook():
   catchphrase = random.choice(List)
   Flag = False
     
-  # We don't want to reply to ourselves! 
+  # We don't want to reply to ourselves! !
   if data['name'].find("Gabe") >= 0:
     msg = '^'
     send_message(msg)
@@ -37,31 +37,29 @@ def webhook():
     msg = '<3'
     send_message(msg)
     Flag = True
-  if data['text'].endswith('?') == True and Flag==False:
+  time.sleep(1)
+  if data['text'].endswith('?') == True:
     Flag = True
     msg = 'ask your team leader'
     send_message(msg)
-
+  time.sleep(1)
   if data['text'].find("navy") >= 0 and Flag == False:
     msg = 'Beat Navy!'
     send_message(msg)
-    
+  time.sleep(1)    
   if data['text'].find("thomas") >= 0 and Flag == False:
     msg = catchphrase
     send_message(msg)
-    
+  time.sleep(1)    
   if data['text'].find("Thomas") >= 0 and Flag == False:
     msg = catchphrase
     send_message(msg)
- """
-  if data['name'] != 'Bill':
-    msg = '{}, you sent "{}".'.format(data['name'], data['text'])
-    send_message(msg)
- """    
- 
- return "ok", 200
+
+  time.sleep(2)
+  return "ok", 200
   
 def send_message(msg):
+  time.sleep(2)
   url  = 'https://api.groupme.com/v3/bots/post'
 
   data = {
